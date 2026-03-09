@@ -14,11 +14,11 @@ from tools.legacy_tools import search_tool
 
 load_dotenv()
 
-def legacy_agent(model, response_structure):
+def legacy_agent(model, response_format):
 
     llm = ChatOpenAI(model=model)
 
-    parser = PydanticOutputParser(pydantic_object=response_structure)
+    parser = PydanticOutputParser(pydantic_object=response_format)
 
     prompt = ChatPromptTemplate.from_messages(
         [
