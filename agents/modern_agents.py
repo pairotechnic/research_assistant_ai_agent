@@ -7,13 +7,13 @@ from dotenv import load_dotenv
 from langchain.agents import create_agent
 
 # Local Application Imports
-from tools.modern_tools import search_web
+from tools.modern_tools import modern_duck_duck_go_search_tool, modern_wiki_search_tool, modern_save_text_to_file_tool
 
 load_dotenv()
 
 def modern_agent(model, response_format):
     # New Way
-    tools = [search_web]
+    tools = [modern_duck_duck_go_search_tool, modern_wiki_search_tool, modern_save_text_to_file_tool]
     agent = create_agent(
         model=model,
         tools=tools,

@@ -10,7 +10,7 @@ from langchain_core.output_parsers import PydanticOutputParser
 from langchain_classic.agents import create_tool_calling_agent, AgentExecutor
 
 # Local Application Imports
-from tools.legacy_tools import search_tool
+from tools.legacy_tools import legacy_duck_duck_go_search_tool, legacy_wiki_search_tool, legacy_save_text_to_file_tool
 
 load_dotenv()
 
@@ -36,7 +36,7 @@ def legacy_agent(model, response_format):
         ]
     ).partial(format_instructions=parser.get_format_instructions())
     
-    tools = [search_tool]
+    tools = [legacy_duck_duck_go_search_tool, legacy_wiki_search_tool, legacy_save_text_to_file_tool]
     agent = create_tool_calling_agent(
         llm=llm,
         prompt=prompt,

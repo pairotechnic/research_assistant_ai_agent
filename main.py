@@ -33,7 +33,7 @@ def naive_api_call(model):
 def main():
     model="gpt-5-nano"
     naive_api_call(model)
-    legacy_agent(model=model, response_fomat=ResearchResponse)
+    legacy_agent(model=model, response_format=ResearchResponse)
     modern_agent(model, response_format=ResearchResponse)
     
 if __name__ == "__main__":
